@@ -1,3 +1,4 @@
+/* --- Styles Généraux --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,110 +7,184 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #333;
-    min-height: 100vh;
+    background-color: #0f172a;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    min-height: 100vh;
+    color: #ffffff;
 }
 
-.container {
+.card-container {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 480px) {
+    .card-container {
+        min-height: 850px;
+        border-radius: 24px;
+        margin: 20px 0;
+    }
+}
+
+/* --- En-tête (Header) --- */
+.header-section {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    padding: 35px 20px 50px 20px;
     text-align: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
 }
 
-/* Profil */
-.profile-img {
-    width: 100px;
-    height: 100px;
+.logo-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px auto;
+    background: #ffffff;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 1.5rem;
+.logo-wrapper img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.header-section h1 {
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    color: #ffffff;
 }
 
-p.bio {
-    font-size: 0.95rem;
-    color: #4b5563;
-    margin-bottom: 30px;
-    padding: 0 20px;
+.slogan {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    font-weight: 300;
 }
 
-/* Liens */
+/* --- Corps Principal --- */
+.main-content {
+    padding: 0 20px 30px 20px;
+    margin-top: -30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Carte de profil (Effet Glassmorphism) */
+.profile-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Conteneur circulaire de la photo de profil proportionnelle */
+.avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 12px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.2);
+    background-color: #e2e8f0;
+}
+
+.avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Évite toute déformation en remplissant le cercle */
+    object-position: center top; /* Centre le visage convenablement */
+    display: block;
+}
+
+.profile-card h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.job-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- Liste des Boutons --- */
 .links-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 12px;
 }
 
 .link-btn {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: #ffffff;
-    color: #1f2937;
-    padding: 16px 20px;
+    background: linear-gradient(135deg, #134074 0%, #0b2545 100%);
     border-radius: 12px;
+    padding: 12px 16px;
     text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    position: relative;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .link-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    background: #1f2937;
-    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 37, 69, 0.25);
 }
 
-.link-btn i.icon-left {
-    font-size: 1.2rem;
-    margin-right: 10px;
-}
-
-.link-btn span {
-    flex-grow: 1;
-    text-align: left;
-}
-
-/* Réseaux Sociaux en bas */
-.socials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icon {
-    width: 45px;
-    height: 45px;
-    background: #ffffff;
-    border-radius: 50%;
+.icon-box {
+    font-size: 1.25rem;
+    width: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1f2937;
-    font-size: 1.2rem;
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    color: #ffffff;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    margin-right: 14px;
+    padding-right: 10px;
 }
 
-.social-icon:hover {
-    background: #1f2937;
-    color: #ffffff;
-    transform: translateY(-3px);
+.link-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.btn-subtitle {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    font-weight: 300;
+    margin-top: 2px;
 }
